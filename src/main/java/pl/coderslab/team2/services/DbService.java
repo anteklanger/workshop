@@ -11,6 +11,13 @@ public class DbService {
     private static String dbPass = ""; //TODO enter password
 
     private static Connection createConn() throws SQLException {
+//        DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         String connUrl = "jdbc:mysql://localhost:3306/"+dbName+"?useSSL=false&characterEncoding=utf8&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         return DriverManager.getConnection(connUrl, dbUser, dbPass);
     }
