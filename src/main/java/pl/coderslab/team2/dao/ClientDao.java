@@ -11,15 +11,18 @@ public class ClientDao {
 
     public static int saveToDb(Client client) {
         int result = 0;
-        String query = "insert into clients values(null, ?, ?, ?, ?);";
+        String query = "insert into clients values(null, ?, ?, ?);";
         List<String> params = new ArrayList<>();
         params.add(client.getFirstName());
         params.add(client.getLastName());
         params.add(client.getBirthDate());
         try {
             result = DbService.insertIntoDatabase(query, params);
+            System.out.println("operation success");
         } catch (SQLException e) {
             //TODO redirect to empty client form with info "operation failed"
+
+            System.out.println("operation failed");
             e.printStackTrace();
         }
         return result;
