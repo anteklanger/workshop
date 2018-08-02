@@ -14,15 +14,18 @@
 <body>
 
 
-
 <table
-    <c:forEach items="${clients}" var="client">
-        <tr>
-            <td>${client.firstName}</td>
-            <td>${client.lastName}</td>
-            <td>${client.birthDate}</td>
-        </tr>
-    </c:forEach>
+<c:forEach items="${clients}" var="client">
+    <tr>
+        <td>${client.firstName}</td>
+        <td>${client.lastName}</td>
+        <td>${client.birthDate}</td>
+        <td><a href="/ClientDeleteController?id=${client.id}">
+            DELETE CLIENT
+        </a></td>
+
+    </tr>
+</c:forEach>
 </table>
 
 </body>
