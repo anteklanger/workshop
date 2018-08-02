@@ -13,17 +13,17 @@
 </head>
 <body>
 
-<%--<c:forEach var="clients" items="${allClients}">--%>
-    <%--Wartość ${losowanie.key}--%>
-    <%--wylosowano ${losowanie.value}--%>
-    <%--<br>--%>
-<%--</c:forEach>--%>
 
-<%--<ul>--%>
-    <%--<c:forEach items="${allClients}" var="value">--%>
-        <%--<li><c:out value="${value.name}"/></li>--%>
-    <%--</c:forEach>--%>
-<%--</ul>--%>
+
+<table
+    <c:forEach items="${clients}" var="client">
+        <tr>
+            <td>${client.firstName}</td>
+            <td>${client.lastName}</td>
+            <td>${client.birthDate}</td>
+        </tr>
+    </c:forEach>
+</table>
 
 </body>
 </html>

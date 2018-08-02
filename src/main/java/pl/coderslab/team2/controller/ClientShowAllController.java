@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ClientShowAllController")
+@WebServlet("/ClientShowAllController")
 public class ClientShowAllController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -21,8 +21,18 @@ public class ClientShowAllController extends HttpServlet {
 
         List<Client> allClients = ClientDao.loadAll();
 
+        for (Client client: allClients
+             ) {
+            response.getWriter().append(client.getFirstName()).append("\n");
+            System.out.println(client.getFirstName());
+        }
+
+
+
 
         request.setAttribute("clients", allClients);
+
+
 
 
         getServletContext().getRequestDispatcher("/clientShowAllController.jsp").forward(request, response);
