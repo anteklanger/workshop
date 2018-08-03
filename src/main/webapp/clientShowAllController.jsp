@@ -23,6 +23,10 @@
         <td><a href="/ClientDeleteController?id=${client.id}">
             DELETE CLIENT
         </a></td>
+        <td>" "</td>
+        <td><a href="/ClientShowEditController?id=${client.id}&edit=yes">
+            EDIT CLIENT
+        </a></td>
 
     </tr>
 </c:forEach>
