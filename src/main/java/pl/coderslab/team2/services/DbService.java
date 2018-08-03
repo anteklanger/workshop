@@ -8,7 +8,8 @@ public class DbService {
 
     private static String dbName = "workshop";
     private static String dbUser = "root";
-    private static String dbPass = "olgierd22"; //TODO enter password
+    private static String dbPass = "";
+
 
     private static Connection createConn() throws SQLException {
         String connUrl = "jdbc:mysql://localhost:3306/"+dbName+"?useSSL=false&characterEncoding=utf8&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -104,8 +105,4 @@ public class DbService {
         }
         return st;
     }
-
-//    ln -s /usr/local/mysql/bin/mysqldump /usr/local/bin/mysqldump
-
-
 }
