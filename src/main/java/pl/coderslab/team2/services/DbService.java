@@ -8,7 +8,12 @@ public class DbService {
 
     private static String dbName = "workshop";
     private static String dbUser = "root";
+<<<<<<< HEAD
+    private static String dbPass = "";
+
+=======
     private static String dbPass = "coderslab"; //TODO enter password
+>>>>>>> 3e3f6e2be0da6cdf094e1e387cb6d3a16635f293
 
     private static Connection createConn() throws SQLException {
 //        DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
@@ -112,8 +117,4 @@ public class DbService {
         }
         return st;
     }
-
-//    ln -s /usr/local/mysql/bin/mysqldump /usr/local/bin/mysqldump
-
-
 }
