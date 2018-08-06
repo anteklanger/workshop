@@ -9,7 +9,7 @@ public class Vehicle {
     String model;
     int productionYear;
     String licencePlate;
-    Date nextTechnicalReview;
+    String nextTechnicalReview;
     int clientID;
 
     public int getVehicleID() {
@@ -52,7 +52,7 @@ public class Vehicle {
         this.licencePlate = licencePlate;
     }
 
-    public Date getNextTechnicalReview() {
+    public String getNextTechnicalReview() {
         return nextTechnicalReview;
     }
 

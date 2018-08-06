@@ -8,10 +8,22 @@ public class DbService {
 
     private static String dbName = "workshop";
     private static String dbUser = "root";
+<<<<<<< HEAD
     private static String dbPass = "";
 
+=======
+    private static String dbPass = "coderslab"; //TODO enter password
+>>>>>>> 3e3f6e2be0da6cdf094e1e387cb6d3a16635f293
 
     private static Connection createConn() throws SQLException {
+//        DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         String connUrl = "jdbc:mysql://localhost:3306/"+dbName+"?useSSL=false&characterEncoding=utf8&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         return DriverManager.getConnection(connUrl, dbUser, dbPass);
     }

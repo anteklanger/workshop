@@ -1,7 +1,6 @@
 package pl.coderslab.team2.controller;
 
 import pl.coderslab.team2.dao.ClientDao;
-import pl.coderslab.team2.entity.Client;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,26 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/ClientShowAllController")
-public class ClientShowAllController extends HttpServlet {
+@WebServlet("/ClientDeleteController")
+public class ClientDeleteController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<Client> allClients = ClientDao.loadAll();
+        int clientToDeleteId = Integer.parseInt(request.getParameter("id"));
+        int result = ClientDao.delete(clientToDeleteId);
 
-        for (Client client: allClients
-             ) {
-            response.getWriter().append(client.getFirstName()).append("\n");
-            System.out.println(client.getFirstName());
-        }
-
-        request.setAttribute("clients", allClients);
-        getServletContext().getRequestDispatcher("/clientShowAllController.jsp").forward(request, response);
-
+        if (result != 0)
+            response.getWriter().append("Client: " + clientToDeleteId + ", deleted");
+        else
+            response.getWriter().append("Operation failed");
     }
 }

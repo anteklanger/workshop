@@ -30,7 +30,7 @@ public class ClientDao {
 
     public static int updateUserDataInDb(Client client) {
         int result = 0;
-        String query = "update clients set firstName = ?, lastName = ?, birthDate = ? where id = ?;";
+        String query = "update clients set firstname = ?, lastname = ?, birthday = ? where id = ?;";
         List<String> params = new ArrayList<>();
         params.add(client.getFirstName());
         params.add(client.getLastName());
